@@ -1,20 +1,31 @@
-package com.cleanArchitecture.pessoa_api.core.entities;
+package com.cleanArchitecture.pessoa_api.infrasctructure.persistence;
 
 import com.cleanArchitecture.pessoa_api.core.enums.EnumTipoPessoa;
+import jakarta.persistence.*;
 
-public class Pessoa {
+@Entity
+@Table(name = "TB_PESSOA")
+public class PessoaEntity {
+
+    @Id
+    @GeneratedValue
     private Long id;
     private String nome;
     private String email;
     private String cpfCnpj;
+
+    @Enumerated(EnumType.STRING)
     private EnumTipoPessoa tipoPessoa;
 
-    public Pessoa(Long id, String nome, String email, String cpfCnpj, EnumTipoPessoa tipoPessoa) {
+    public PessoaEntity(Long id, String nome, String email, String cpfCnpj, EnumTipoPessoa tipoPessoa) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpfCnpj = cpfCnpj;
         this.tipoPessoa = tipoPessoa;
+    }
+
+    public PessoaEntity() {
     }
 
     public Long getId() {

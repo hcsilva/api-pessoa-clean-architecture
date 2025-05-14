@@ -2,7 +2,9 @@ package com.cleanArchitecture.pessoa_api.core.usecases;
 
 import com.cleanArchitecture.pessoa_api.core.entities.Pessoa;
 
-public interface CreatePessoaUserCase {
+import java.util.List;
 
-    Pessoa execute(Pessoa pessoa);
+public interface GetAllPessoasUseCase {
+
+    List<Pessoa> execute();
 }
